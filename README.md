@@ -1,6 +1,6 @@
 # DoubleTap
 
-Password spray sites that require 2+ page loads/and or dynamic nonces (JavaScript)to complete the 
+Password spray sites that require 2+ page loads/and or dynamic nonces (JavaScript) to complete the
 authentication procedure.
 
 DoubleTap uses the headless browser, PhantomJS, complete with JavaScript runtime, in order to load
