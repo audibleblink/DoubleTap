@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+# Check that doubletap image exists
+sudo docker inspect doubletap &> /dev/null
+
+# Build it if not
+[[ $? -eq 0 ]] || sudo docker build -t doubletap .
+
+## DOCKER PROXY
+# Sometimes you'll want to run this through a proxy. Given that DoubleTap is
+# running in the Docker network, the proxy server must be reachable from the
+# docker subnet. Your host should have a docker0 interface. That address is
+# reachable from the DT container. If you start Burp on that interface, you
+# can pass the docker0 interface IP to the run commnand to pipe all DoubleTap
+# traffic to Burp on your docker host.
+
+# Uncomment the following line to enable proxying to the Docker host
+# PROXY_CMD="--env http_proxy='http://172.17.0.1:8080'"
+
+# Mount CWD and start container with args passed into script
+sudo docker run --rm -v "${PWD}":/app $PROXY_CMD doubletap "$@"
