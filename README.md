@@ -31,12 +31,8 @@ From this directory, run
 * Install Ruby (preferably with a version manager like Rbenv or RVM)
 * Install node.js (preferably with a version manager like nodeenv or n)
 
-```
+```sh
 gem install 'poltergeist'
-gem install 'capybara'
-```
-
-```
 npm install -g phantomjs-prebuilt
 ```
 

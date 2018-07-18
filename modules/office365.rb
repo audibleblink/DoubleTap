@@ -1,13 +1,13 @@
 require_relative '../lib/core'
 
-COMPANY = "example"
+COMPANY = "jet"
 
 class Office365 < DoubleTap
 
   def initialize
     super
     @url = "http://autodiscover.#{COMPANY}.com"
-    @jitter = { min: 15, max: 30 }
+    @jitter = { min: 1, max: 3 }
     @fault_sleep = 300
   end
 
