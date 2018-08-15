@@ -12,6 +12,12 @@ Prerequisites:
 
 ## Usage
 
+**Notice**: I'd classify this more as a 'library' than a typical 'tool'. 
+
+> Take this :ruby: It's dangerous to go alone.
+
+<sub>*some assembly required. the lego kind, not the x86 kind*</sub>
+
 The main `doubletap` script should detect if you have the required docker images build, and
 build them if not.
 
