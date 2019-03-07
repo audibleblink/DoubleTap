@@ -19,3 +19,9 @@ sudo docker inspect doubletap &> /dev/null
 
 # Mount CWD and start container with args passed into script
 sudo docker run --rm -v "${PWD}":/app $PROXY_CMD doubletap "$@"
+
+
+## For Dev only
+# sudo docker inspect doubletap-dev &> /dev/null
+# [[ $? -eq 0 ]] || sudo docker build -t doubletap-dev -f Dockerfile.development .
+# sudo docker run --rm -v "${PWD}":/app $PROXY_CMD doubletap-dev "$@"
