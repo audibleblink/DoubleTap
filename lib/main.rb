@@ -1,7 +1,7 @@
 require 'optparse'
 
 # RUby like to be smart about wheh it flushes STDOUT. Don't let it.
-STDOUT.sync = true
+$stdout.sync = true
 
 options = {}
 OptionParser.new do |parser|
