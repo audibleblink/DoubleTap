@@ -15,7 +15,7 @@ sudo docker inspect doubletap &> /dev/null
 # traffic to Burp on your docker host.
 
 # Uncomment the following line to enable proxying to the Docker host
-# PROXY_CMD="--env http_proxy='http://172.17.0.1:8080'"
+# export PROXY_CMD="--env http_proxy='http://172.17.0.1:8080'"
 
 # Mount CWD and start container with args passed into script
 sudo docker run --rm -v "${PWD}":/app $PROXY_CMD doubletap "$@"
