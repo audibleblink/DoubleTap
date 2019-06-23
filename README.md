@@ -94,6 +94,9 @@ requests or pipe them through some kind of proxy rotator. Since this library is 
 Docker environment, your proxy server needs to be accessible from the internal Docker network.
 There are many ways to achieve this but I've provided a line in `doubletap.sh` for you to uncomment
 that will proxy requests made from inside the DoubleTap container.
+This will also require that you build the image with a root cert to be trusted. Place your cert in 
+the root of this repo as `burp.pem` and rebuild the image to make sure the docker container OS can
+establish trusted TLS connections.
 
 ```sh
 # Uncomment the following line to enable proxying to the Docker host
