@@ -29,11 +29,21 @@ class DoubleTap
   end
 
   def spray!
+    max_attempt = 2
+    attempt = 0
     @passwords.each do |pass|
       @users.each do |username|
+        attempt += 1
         puts "Trying #{username} with password: #{pass}" if VERBOSE
-        login_flow(user: username, pass: pass)
+        begin
+          login_flow(user: username, pass: pass)
+        rescue => e
+          puts e
+          attempt >= max_attempt ? next : retry
+          next
+        end
         puts "FOUND: #{username}:#{pass}" if valid_login?
+        attempt = 0
         new_session!
       end
     end
