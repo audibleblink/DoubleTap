@@ -88,7 +88,11 @@ class DoubleTap
   end
 
   private def new_session!
-    @browser.driver.reset!
+    begin
+      @browser.driver.reset!
+    rescue => e
+      puts e
+    end
   end
 
 end
