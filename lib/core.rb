@@ -50,7 +50,15 @@ class DoubleTap
   end
 
   private def build_browser
-    browser = Capybara::Session.new(:poltergeist)
+    Capybara.register_driver :custom do |app|
+      options = {
+        timeout: 60,
+        phantomjs_options: ['--ignore-ssl-errors=yes'],
+        js_errors: false
+      }
+      Capybara::Poltergeist::Driver.new(app, options)
+    end
+    browser = Capybara::Session.new(:custom)
     browser.driver.add_header('User-Agent', @user_agent)
     browser
   end
